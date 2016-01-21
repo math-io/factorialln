@@ -7,7 +7,7 @@ factorialln
 Computes the natural logarithm of the factorial, i.e.
 
 <div class="equation" align="center" data-raw-text="f(n)=\ln (n!)" data-equation="eq:factorialln_equation">
-   <img src="" alt="Equation of the natural logarithm of the factorial.">
+   <img src="https://cdn.rawgit.com/math-io/factorialln/a027762a84a277f3f16497bdda4ed454d3ae86ae/docs/img/eqn.svg" alt="Equation of the natural logarithm of the factorial.">
    <br>
 </div>
 
@@ -27,7 +27,7 @@ var factorialln = require( 'math-factorialln' );
 ```
 
 
-#### factorialln( x )
+#### factorialln( n )
 
 Evaluates the natural logarithm of the [factorial function][factorial-function]. For non-integer `n`, the function returns
 `ln( n! ) = ln( Γ(n+1) )`, where `Γ` is the [gamma function][gamma-function]. For `n < 0`, `+Infinity` is returned.
@@ -50,7 +50,7 @@ val = factorialln( -1 );
 For non-integer input arguments, the function computes the natural logarithm of the factorial of `n` by evaluating the logarithm of the gamma function at `n+1`, i.e. `ln( Γ(n+1) )`. When `n` is an integer and smaller than 256, the result is looked up in a table, and for n > 256, the following approximation is used:
 
 ```
-(x – 1/2) log(x) – x + (1/2) log(2 π) + 1/(12 x)
+(n – 1/2) ln(n) – n + (1/2) ln(2 π) + 1/(12 n)
 ```
 
 ## References
@@ -63,13 +63,13 @@ See [John D. Cook's blog post](http://www.johndcook.com/blog/2010/08/16/how-to-c
 var linspace = require( 'compute-linspace' );
 var factorialln = require( 'math-factorialln' );
 
-var x = linspace( -10, 10, 40 );
+var n = linspace( -10, 10, 40 );
 var v;
 var i;
 
-for ( i = 0; i < x.length; i++ ) {
-	v = factorialln( x[ i ] );
-	console.log( 'x: %d, f(x): %d', x[ i ], v );
+for ( i = 0; i < n.length; i++ ) {
+	v = factorialln( n[ i ] );
+	console.log( 'n: %d, f(n): %d', n[ i ], v );
 }
 ```
 
